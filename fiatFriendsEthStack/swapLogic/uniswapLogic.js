@@ -11,5 +11,5 @@ async function uniswapHotSwap(recipientAddress, amount, swapCurrency){
     let exchangeAddress = await factoryContract.functions.getExchange(swapCurrency);
     let exchangeContract = new ethers.Contract(exchangeAddress, contractData.uniswapExchangeAbi,ethersConfig.wallet);
     //let deadline = parseInt((Date.now()/1000 + 10000000000));
-    await exchangeContract.functions.ethToTokenTransferInput(ethers.utils.hexlify(1), ethers.utils.hexlify(2552132999), recipientAddress, {value: ethers.utils.parseEther(JSON.stringify(amount)), gasLimit: 100000}); 
+    return await exchangeContract.functions.ethToTokenTransferInput(ethers.utils.hexlify(1), ethers.utils.hexlify(2552132999), recipientAddress, {value: ethers.utils.parseEther(JSON.stringify(amount)), gasLimit: 100000}); 
 }
