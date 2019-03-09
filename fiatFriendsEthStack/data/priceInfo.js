@@ -1,13 +1,17 @@
 
 const axios = require('axios');
-const priceFeed = 'https://api.cryptonator.com/api/ticker/eth-usd';
 
 module.exports = {
     getPrice: getPrice
 }
 
-function getPrice() {axios.get(priceFeed)
-  .then(function (response) {
-    return response.price;
-  })
+function getPrice(currencyFrom) {
+    return axios.get(`https://api.cryptonator.com/api/ticker/${currencyFrom}-eth`)
+    .then( response => {
+        return response.data.ticker.price;
+    })
+    .catch( err =>{
+        return err;
+    })
 }
+

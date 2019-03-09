@@ -13,7 +13,7 @@ async function sendEth(recipientAddress, amount){
         // ... or supports ENS names
         // to: "ricmoo.firefly.eth",
     
-        value: ethers.utils.parseEther(amount.toString()),
+        value: ethers.utils.parseEther(amount),
     
         // This ensures the transaction cannot be replayed on different networks
 
