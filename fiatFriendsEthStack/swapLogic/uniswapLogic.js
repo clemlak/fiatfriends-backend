@@ -7,7 +7,6 @@ module.exports = {
 }
 
 async function uniswapHotSwap(recipientAddress, amount, swapCurrency) {
-    console.log(amount);
     let factoryContract = new ethers.Contract(contractData.uniswapFactoryAddress, contractData.uniswapFactoryAbi, ethersConfig.wallet);
     let exchangeAddress = await factoryContract.functions.getExchange(swapCurrency);
     let exchangeContract = new ethers.Contract(exchangeAddress, contractData.uniswapExchangeAbi,ethersConfig.wallet);
