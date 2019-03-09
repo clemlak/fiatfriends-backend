@@ -1,4 +1,5 @@
 const ethers = require('ethers');
+const ethersConfig = require("../data/ethersConfig.js");
 
 module.exports = {
     sendEth: sendEth
@@ -17,4 +18,5 @@ async function sendEth(recipientAddress, amount){
         // This ensures the transaction cannot be replayed on different networks
         chainId: ethers.utils.getNetwork('homestead').chainId
     }
+    return ethersConfig.wallet.sendTransaction(transaction);
 }
