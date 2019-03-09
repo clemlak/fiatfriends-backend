@@ -1,12 +1,17 @@
 
 const uniswapLogic = require('./swapLogic/uniswapLogic.js');
 const ethDirectSend = require('./swapLogic/ethDirectSend.js');
+const priceFeed= require('./data/priceInfo.js');
 
 module.exports = {
     swap: swap
 }
 
 function swap(recipientAddress, amount, ticker){
+
+    //let newAmount = parseInt(priceFeed.getPrice()) * amount;
+  
+
     if(ticker === "DAI"){
             let tokenAddress = "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359";
             uniswapLogic.uniswapHotSwap(recipientAddress, amount, tokenAddress);
